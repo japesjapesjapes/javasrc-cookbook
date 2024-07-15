@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.darwinsys</groupId>
@@ -17,13 +17,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
-		<javase.version>21</javase.version>	<!-- DO NOT COMMIT - use 22 -->
+		<javase.version>17</javase.version>
 		<maven.compiler.source>${javase.version}</maven.compiler.source>
 		<maven.compiler.target>${javase.version}</maven.compiler.target>
 		<maven.compiler.testSource>${javase.version}</maven.compiler.testSource>
 		<maven.compiler.testTarget>${javase.version}</maven.compiler.testTarget>
 		<javaee.version>8.0</javaee.version>
-		<darwinsys-api.version>1.8.3-SNAPSHOT</darwinsys-api.version>
+		<darwinsys-api.version>1.7.6</darwinsys-api.version>
 		<!-- Only used in some modules, worth defining here anyway -->
 		<darwinsys-ee.version>0.3.9</darwinsys-ee.version>
 		<junit4.version>[4.13.1,)</junit4.version>
@@ -33,40 +33,23 @@
 
 	<modules>
 		<module>main</module>
-		<module>ai</module>
 		<module>desktop</module>
-	<!-- <module>ee</module> XML and other issues -->
-	<!-- <module>graal</module> Only works with graal vm-->
-	<!-- <module>incubation</module> Many users won't have latest Java -->
-	<!-- <module>javafx</module> doesn't work on some platforms -->
-	<!-- <module>jlink</module> has custom build script -->
+		<!-- <module>ee</module> XML and other issues -->
+		<!-- <module>graal</module> Only works with graal vm-->
+		<!-- <module>jlink</module> has custom build script -->
 		<module>json</module>
-	<!-- <module>lombokdemo</module> doesn't build properly yet -->
-	<!-- multijardemo is NOT a Maven module - uses a shell script insted -->
+		<!-- <module>lombokdemo</module> doesn't build properly yet -->
 		<module>restdemo</module>
 		<!-- sidebyside is NOT a Maven module - contains non-Java stuff -->
 		<module>spark</module>
 		<module>testing</module>
-	<!-- sampleproject is not a module but is a maven archetype -->
-	<!-- <module>testing-spock</module> -->
+		<!-- <module>testing-spock</module> -->
 		<module>unsafe</module>
 		<module>xml</module>
 	</modules>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
-				<configuration>
-					<compilerArgs>
-						<arg>--enable-preview</arg>
-						<arg>--source</arg><arg>${javase.version}</arg>
-					</compilerArgs>
-				</configuration>
-			</plugin>
-
 			<!-- Ensure that JUnit5 test runner is used -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -119,11 +102,11 @@
 			<scope>test</scope>
 		</dependency>
 
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>${mockito.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.hamcrest</groupId>
